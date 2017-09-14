@@ -1,0 +1,13 @@
+[example:vars]
+test = one
+
+[example]
+webother_90520745702521_1503686604-2.example.net hostname=webother_90520745702521_1503686604-2.example.net 
+webother_90520745702521_1503686604-0.example.net hostname=webother_90520745702521_1503686604-0.example.net 
+webother_90520745702521_1503686604-1.example.net hostname=webother_90520745702521_1503686604-1.example.net 
+
+[all]
+webother_90520745702521_1503686604-2.example.net hostname=webother_90520745702521_1503686604-2.example.net 
+webother_90520745702521_1503686604-0.example.net hostname=webother_90520745702521_1503686604-0.example.net 
+webother_90520745702521_1503686604-1.example.net hostname=webother_90520745702521_1503686604-1.example.net 
+

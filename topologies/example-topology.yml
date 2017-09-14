@@ -1,0 +1,38 @@
+# To use this topology, the libvirt modules must be installed.
+# Here's how (using Fedora 25 x86_65 installation):
+#
+# $ virtualenv venv
+# $ source venv/bin/activate
+# (venv) $ pip install linchpin
+# .. snip ..
+# (venv) $ pip install linchpin[libvirt]
+# .. snip ..
+# (venv) $ sudo dnf install libselinux-python
+# .. snip ..
+# (venv) $ sudo ln -s /usr/lib64/python2.7/site-packages/_selinux.so venv/lib/python2.7/site-packages/_selinux.so
+# (venv) $ sudo ln -s /usr/lib64/python2.7/site-packages/selinux venv/lib/python2.7/site-packages/
+# .. verify links are correct ..
+#
+# (venv) $ linchpin up
+# .. snip ..
+#
+# YMMV
+
+---
+topology_name: rhel7_rhel7_nosec_nossl
+site: openstack
+resource_groups:
+  - resource_group_name: rhel7_rhel7
+    res_group_type: openstack
+    credentials:
+      filename: clouds.yaml
+      profile: devstack
+    res_defs:
+      - res_name:  irc_bouncer_sk
+        flavor: m1.small
+        res_type: os_server
+        image: centos72
+        count: 1
+        keypair: ci-factory
+        networks:
+          - "e2e-openstack"
