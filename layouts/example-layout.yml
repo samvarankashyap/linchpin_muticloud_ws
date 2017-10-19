@@ -2,9 +2,20 @@
 inventory_layout:
   vars:
     hostname: __IP__
+    ansible_connection: ssh
+    ansible_user: centos
+    ansible_ssh_private_key_file: /home/srallaba/workspace/venvs/lp_tests/linchtest/keys/sk_key
   hosts:
-    example-node:
+    appserver:
       count: 1
       host_groups:
-        - example
+        - appserver
+    dbserver:
+      count: 1
+      host_groups:
+        - dbserver
+    restserver:
+      count: 1
+      host_groups:
+        - restserver
 

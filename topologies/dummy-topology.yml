@@ -7,11 +7,11 @@ resource_groups:
     resource_definitions:
       -
         name: "webother"
-        resource_type: "dummy_node"
+        type: "dummy_node"
         count: 3
       -
         name: "webanother"
-        resource_type: "dummy_node"
+        type: "dummy_node"
         count: 1
   -
     resource_group_name: "dummygrp2"
@@ -19,10 +19,9 @@ resource_groups:
     resource_definitions:
       -
         name: "webother"
-        resource_type: "dummy_node"
+        type: "dummy_node"
         count: 2
       -
         name: "webanother"
-        resource_type: "dummy_node"
+        type: "dummy_node"
         count: 1
-

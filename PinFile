@@ -1,16 +1,31 @@
-#The following example illustrates the PinFile
-#
-#SYNTAX:
-#
-#target:
-#    topology: <string>
-#    inventory: <string>
-
-example_target:
+testtarget:
   topology: example-topology.yml
   layout: example-layout.yml
+  hooks:
+    postup:
+      - name: install_app_server
+        type: ansible
+        actions:
+          - playbook: main.yaml
+          - playbook: run_server.yaml
+      - name: install_db_server
+        type: ansible
+        actions:
+          - playbook: install_preqs.yaml
+          - playbook: main.yaml
+      - name: install_rest_server
+        type: ansible
+        actions:
+          - playbook: main.yaml
+          - playbook: run_server.yaml
 
-
-dummy_target:
+dummytarget:
   topology: dummy-topology.yml
   layout: dummy-layout.yml
+  hooks:
+    preup:
+      - name: pre_up
+        type: ansible
+        context: false
+        actions:
+          - playbook: main.yml
